@@ -1,0 +1,7 @@
+distribute*
+.noseids
+*.pyc
+*.swp
+*egg-info*
+build/
+dist/
