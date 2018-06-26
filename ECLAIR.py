@@ -9,8 +9,6 @@ from sklearn.metrics import roc_auc_score
 
 from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
 
-from mjm_ml_methods import normalize
-
 #------------------------------------------------------------------------------------------------
 #--------------------------------------- HELPER FUNCTIONS ---------------------------------------
 #------------------------------------------------------------------------------------------------
@@ -45,6 +43,11 @@ def rolling_row_window(a, row_window):
 
 def cv_loss_min(aucs):
 	return 1-min(aucs)
+
+
+def normalize(features):
+	'''normalize residue features, centered at 0 and scaled by standard deviation'''
+	return (features - np.nanmean(features)) / np.nanstd(features)
 
 
 #------------------------------------------------------------------------------------------------
